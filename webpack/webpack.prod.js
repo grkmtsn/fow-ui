@@ -43,21 +43,6 @@ module.exports = {
         parallel: true,
       }),
     ],
-    splitChunks: {
-      cacheGroups: {
-        vendors: {
-          test: /[\\/]node_modules[\\/]/,
-          name: 'vendors',
-          chunks: 'initial',
-        },
-        async: {
-          test: /[\\/]node_modules[\\/]/,
-          name: 'async',
-          chunks: 'async',
-          minChunks: 4,
-        },
-      },
-    },
   },
   plugins: [new CleanWebpackPlugin()],
 };
