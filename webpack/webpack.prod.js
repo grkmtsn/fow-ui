@@ -1,20 +1,20 @@
 /* eslint-disable import/no-extraneous-dependencies */
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-const TerserPlugin = require("terser-webpack-plugin");
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
-  mode: "production",
+  mode: 'production',
   output: {
-    filename: "[name].js",
-    chunkFilename: "[name].js",
-    libraryTarget: "umd",
+    filename: '[name].js',
+    chunkFilename: '[name].js',
+    libraryTarget: 'umd',
   },
   module: {
     rules: [
       {
-        enforce: "pre",
+        enforce: 'pre',
         test: /\.(js|jsx)$/,
-        loader: "eslint-loader",
+        loader: 'eslint-loader',
         exclude: /(node_modules)/,
         options: {
           emitWarning: true,
@@ -24,12 +24,12 @@ module.exports = {
       {
         test: /\.css$/,
         use: [
-          "style-loader",
+          'style-loader',
           {
-            loader: "css-loader",
+            loader: 'css-loader',
             options: {
               modules: {
-                localIdentName: "[hash:base64]",
+                localIdentName: '[hash:base64]',
               },
             },
           },
@@ -41,20 +41,19 @@ module.exports = {
     minimizer: [
       new TerserPlugin({
         parallel: true,
-        cache: true,
       }),
     ],
     splitChunks: {
       cacheGroups: {
         vendors: {
           test: /[\\/]node_modules[\\/]/,
-          name: "vendors",
-          chunks: "initial",
+          name: 'vendors',
+          chunks: 'initial',
         },
         async: {
           test: /[\\/]node_modules[\\/]/,
-          name: "async",
-          chunks: "async",
+          name: 'async',
+          chunks: 'async',
           minChunks: 4,
         },
       },
