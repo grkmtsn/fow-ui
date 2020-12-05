@@ -1,17 +1,23 @@
+/* eslint-disable import/no-extraneous-dependencies */
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 module.exports = {
-  mode: "development",
-  devtool: "source-map",
+  mode: 'development',
+  devtool: 'source-map',
   output: {
-    filename: "[name].js",
-    chunkFilename: "[name].js",
-    libraryTarget: "umd",
+    filename: '[name].js',
+    chunkFilename: '[name].js',
+    libraryTarget: 'umd',
   },
+  plugins: [
+    new HtmlWebpackPlugin(),
+  ],
   module: {
     rules: [
       {
-        enforce: "pre",
+        enforce: 'pre',
         test: /\.(js|jsx)$/,
-        loader: "eslint-loader",
+        loader: 'eslint-loader',
         exclude: /(node_modules)/,
         options: {
           cache: true,
@@ -19,12 +25,18 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        options: {
-          sourceMap: true,
-          modules: {
-            localIndentName: "[path][name]__[local]",
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: true,
+              modules: {
+                localIdentName: '[path][name]__[local]',
+              },
+            },
           },
-        },
+        ],
       },
     ],
   },

@@ -1,8 +1,8 @@
-const path = require("path");
+const path = require('path');
 
 module.exports = {
-  root: path.resolve(__dirname, "../"),
-  outputPath: path.resolve(__dirname, "../", "dist"),
-  entryPath: path.resolve(__dirname, "../", "src/index.js"),
-  componentsFolder: path.resolve(__dirname, "../", "src/components"),
+  root: path.resolve(__dirname, '../'),
+  outputPath: path.resolve(__dirname, '../', 'dist'),
+  entryPath: path.resolve(__dirname, '../', 'src/index.js'),
+  componentsFolder: path.resolve(__dirname, '../', 'src/components'),
 };
