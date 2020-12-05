@@ -1,6 +1,6 @@
 {
   "name": "fow-ui",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Fow UI Library wrapped around Antd",
   "keywords": [
     "react",
@@ -11,7 +11,12 @@
   ],
   "main": "dist/main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "cross-env NODE_ENV=development webpack-cli --progress --colors",
+    "build": "cross-env NODE_ENV=production webpack-cli --progress --colors",
+    "styleguide": "styleguidist server",
+    "styleguide:build": "styleguidist build",
+    "postbuild": "npm pack && tar -xvzf *.tgz && rm -rf package *.tgz",
+    "prepublishOnly": "npm run build"
   },
   "author": "grkkmm1@gmail.com",
   "license": "ISC",
