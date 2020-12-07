@@ -1,12 +1,14 @@
 /* eslint-disable import/no-extraneous-dependencies */
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
+const MomentTimezoneDataPlugin = require('moment-timezone-data-webpack-plugin');
+
+const currentYear = new Date().getFullYear();
 
 module.exports = {
   mode: 'production',
   output: {
     filename: '[name].js',
-    chunkFilename: '[name].js',
     libraryTarget: 'umd',
   },
   module: {
@@ -27,11 +29,6 @@ module.exports = {
           'style-loader',
           {
             loader: 'css-loader',
-            options: {
-              modules: {
-                localIdentName: '[hash:base64]',
-              },
-            },
           },
         ],
       },
@@ -44,5 +41,8 @@ module.exports = {
       }),
     ],
   },
-  plugins: [new CleanWebpackPlugin()],
+  plugins: [new CleanWebpackPlugin(), new MomentTimezoneDataPlugin({
+    startYear: currentYear - 5,
+    endYear: currentYear + 5,
+  })],
 };

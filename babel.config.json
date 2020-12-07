@@ -14,7 +14,17 @@
       "import",
       {
         "libraryName": "antd",
+        "libraryDirectory": "es",
         "style": "css"
+      },
+      "antd"
+    ],
+    [
+      "react-intl",
+      {
+        "idInterpolationPattern": "[sha512:contenthash:base64:6]",
+        "extractFromFormatMessageCall": true,
+        "ast": true
       }
     ]
   ]

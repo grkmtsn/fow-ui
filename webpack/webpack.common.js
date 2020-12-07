@@ -1,7 +1,10 @@
 const commonPaths = require('./paths');
 
 module.exports = {
-  entry: commonPaths.entryPath,
+  entry: {
+    main: commonPaths.entryPath,
+    components: commonPaths.componentsFolder,
+  },
   module: {
     rules: [
       {

@@ -1,9 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 import { StyledButton } from './styles';
 
 const FowButton = ({ label, rounded, ...rest }) => (
-  <StyledButton {...rest} rounded={rounded}>
+  <StyledButton
+    {...rest}
+    rounded={rounded}
+  >
     {label}
   </StyledButton>
 );
