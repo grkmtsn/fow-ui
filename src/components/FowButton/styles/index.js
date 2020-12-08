@@ -2,7 +2,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import styled from 'styled-components';
 import { Button } from 'antd';
-import 'antd/es/button/style/css';
 
 export const StyledButton = styled(Button)(({ rounded, theme }) => `
     border-radius: ${rounded ? '50px' : '0'};

@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 
 import { ConfigProvider } from 'antd';
 import { IntlProvider } from 'react-intl';
+import { generateThemeColor, changeAntdTheme } from 'dynamic-antd-theme';
+
 import { StateProvider, StateContext } from '../../context/StateContext';
 import FowThemeProvider from '../FowThemeProvider/FowThemeProvider';
 
@@ -12,6 +14,7 @@ import momentLocales from '../../constants/momentLocals';
 const FowProvider = ({ initialState, children }) => (
   <StateProvider initialState={initialState}>
     <FowThemeProvider>
+      {changeAntdTheme(generateThemeColor(initialState.color || '#ff9337'))}
       <StateContext.Consumer>
         {([states]) => (
           <IntlProvider locale={states?.currencyLocale}>

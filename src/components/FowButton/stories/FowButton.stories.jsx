@@ -1,5 +1,6 @@
 /* eslint-disable react/style-prop-object */
 import React from 'react';
+import { generateThemeColor, changeAntdTheme } from 'dynamic-antd-theme';
 import FowButton from '../FowButton';
 import FowProvider from '../../FowProvider/FowProvider';
 
@@ -9,11 +10,14 @@ export default {
   component: FowButton,
 };
 
-const Template = (args) => (
-  <FowProvider>
-    <FowButton {...args} type="primary" />
-  </FowProvider>
-);
+const Template = (args) => {
+  changeAntdTheme(generateThemeColor('#ccc'));
+  return (
+    <FowProvider>
+      <FowButton {...args} type="primary" />
+    </FowProvider>
+  );
+};
 
 export const Default = Template.bind({});
 Default.args = {

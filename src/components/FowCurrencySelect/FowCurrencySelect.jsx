@@ -1,6 +1,8 @@
 import React from 'react';
 import { Select } from 'antd';
 
+import 'antd/es/select/style/css';
+
 import { useGlobalState } from '../../context/StateContext';
 import { CHANGE_CURRENCY } from '../../context/types';
 import currencies from '../../constants/currencies';

@@ -14,10 +14,8 @@
       "import",
       {
         "libraryName": "antd",
-        "libraryDirectory": "es",
-        "style": "css"
-      },
-      "antd"
+        "style": true
+      }
     ],
     [
       "react-intl",

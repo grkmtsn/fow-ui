@@ -32,6 +32,21 @@ module.exports = {
           },
         ],
       },
+      {
+        test: /\.less$/,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1,
+            },
+          },
+          {
+            loader: 'less-loader',
+          },
+        ],
+      },
     ],
   },
   optimization: {
@@ -41,8 +56,10 @@ module.exports = {
       }),
     ],
   },
-  plugins: [new CleanWebpackPlugin(), new MomentTimezoneDataPlugin({
-    startYear: currentYear - 5,
-    endYear: currentYear + 5,
-  })],
+  plugins: [
+    new CleanWebpackPlugin(),
+    new MomentTimezoneDataPlugin({
+      startYear: currentYear - 5,
+      endYear: currentYear + 5,
+    })],
 };
